@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Jeylabs\SnsSqsPubSub\Queue\Jobs;
+namespace Mvjacobs\SnsSqsPubSub\Queue\Jobs;
 
 use Aws\Sqs\SqsClient;
 use Exception;
@@ -9,7 +9,7 @@ use Illuminate\Container\Container;
 use Illuminate\Queue\Jobs\SqsJob;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
-use Jeylabs\SnsSqsPubSub\Queue\JobMap;
+use Mvjacobs\SnsSqsPubSub\Queue\JobMap;
 
 class SnsJob extends SqsJob
 {

@@ -1,12 +1,12 @@
 <?php
 
 
-namespace Jeylabs\SnsSqsPubSub\Queue;
+namespace Mvjacobs\SnsSqsPubSub\Queue;
 
 use Illuminate\Contracts\Queue\Job;
 use Aws\Sqs\SqsClient;
 use Illuminate\Queue\SqsQueue;
-use Jeylabs\SnsSqsPubSub\Queue\Jobs\SnsJob;
+use Mvjacobs\SnsSqsPubSub\Queue\Jobs\SnsJob;
 
 class SnsQueue extends SqsQueue
 {

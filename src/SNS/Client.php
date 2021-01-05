@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Jeylabs\SnsSqsPubSub\SNS;
+namespace Mvjacobs\SnsSqsPubSub\SNS;
 
 use Aws\Credentials\Credentials;
 use Aws\Sns\SnsClient;

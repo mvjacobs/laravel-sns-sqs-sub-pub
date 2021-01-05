@@ -1,16 +1,16 @@
 <?php
 
-namespace Jeylabs\SnsSqsPubSub\Traits;
+namespace Mvjacobs\SnsSqsPubSub\Traits;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
-use Jeylabs\SnsSqsPubSub\Publisher\SNSPublisher as SnsSqsPubSubSNSPublisher;
+use Mvjacobs\SnsSqsPubSub\Publisher\SNSPublisher as SnsSqsPubSubSNSPublisher;
 
 /**
  * Trait SNSPublisher
- * @package Jeylabs\SnsSqsPubSub\Traits
+ * @package Mvjacobs\SnsSqsPubSub\Traits
  */
 trait SNSPublisher
 {

@@ -18,7 +18,7 @@ composer require jeylabs/laravel-sns-sqs-sub-pub
 ```
 You can optionally publish the config file with:
 ```bash
-php artisan vendor:publish --provider="Jeylabs\SnsSqsPubSub\SnsSqsPubSubServiceProvider" --tag="config"
+php artisan vendor:publish --provider="Mvjacobs\SnsSqsPubSub\SnsSqsPubSubServiceProvider" --tag="config"
 ```
 This is the contents of the published config file:
 
@@ -113,7 +113,7 @@ class TestSQSJob implements ShouldQueue
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Jeylabs\SnsSqsPubSub\Traits\SNSPublisher;
+use Mvjacobs\SnsSqsPubSub\Traits\SNSPublisher;
 
 class Post extends Model
 {

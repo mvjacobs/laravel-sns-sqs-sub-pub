@@ -1,17 +1,18 @@
 <?php
 
-namespace Jeylabs\SnsSqsPubSub;
+namespace Mvjacobs\SnsSqsPubSub;
 
-use Illuminate\Support\ServiceProvider;
 use Illuminate\Config\Repository;
 use Illuminate\Queue\QueueManager;
-use Jeylabs\SnsSqsPubSub\Queue\Connectors\SnsConnector;
-use Jeylabs\SnsSqsPubSub\Queue\JobMap;
+use Illuminate\Support\ServiceProvider;
+use Mvjacobs\SnsSqsPubSub\Queue\Connectors\SnsConnector;
+use Mvjacobs\SnsSqsPubSub\Queue\JobMap;
 
 class SnsSqsPubSubServiceProvider extends ServiceProvider
 {
     /**
      * Register services.
+     *
      * @return void
      */
     public function register()
@@ -21,6 +22,7 @@ class SnsSqsPubSubServiceProvider extends ServiceProvider
 
     /**
      * Bootstrap services.
+     *
      * @return void
      */
     public function boot()
@@ -35,12 +37,14 @@ class SnsSqsPubSubServiceProvider extends ServiceProvider
     }
 
     /**
-     * publish the configuration file
+     * Publish the config
+     *
+     * @return void
      */
     private function publishConfig()
     {
         $this->publishes([
-            __DIR__.'/../config/sns-sqs-sub-pub.php' => config_path('sns-sqs-sub-pub.php'),
+            __DIR__ . '/../config/sns-sqs-sub-pub.php' => config_path('sns-sqs-sub-pub.php'),
         ], 'config');
 
         $this->mergeConfigFrom(__DIR__ . '/../config/sns-sqs-sub-pub.php', 'sns-sqs-sub-pub');

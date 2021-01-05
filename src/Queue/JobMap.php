@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Jeylabs\SnsSqsPubSub\Queue;
+namespace Mvjacobs\SnsSqsPubSub\Queue;
 
 
 use Exception;

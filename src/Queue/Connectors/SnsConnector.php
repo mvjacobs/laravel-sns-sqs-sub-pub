@@ -1,15 +1,15 @@
 <?php
 
-namespace Jeylabs\SnsSqsPubSub\Queue\Connectors;
+namespace Mvjacobs\SnsSqsPubSub\Queue\Connectors;
 
 use Aws\Credentials\Credentials;
 use Aws\Sqs\SqsClient;
+use Illuminate\Contracts\Queue\Queue;
 use Illuminate\Queue\Connectors\ConnectorInterface;
 use Illuminate\Queue\Connectors\SqsConnector;
 use Illuminate\Support\Arr;
-use Jeylabs\SnsSqsPubSub\Queue\JobMap;
-use Jeylabs\SnsSqsPubSub\Queue\SnsQueue;
-use Illuminate\Contracts\Queue\Queue;
+use Mvjacobs\SnsSqsPubSub\Queue\JobMap;
+use Mvjacobs\SnsSqsPubSub\Queue\SnsQueue;
 
 class SnsConnector extends SqsConnector implements ConnectorInterface
 {
@@ -50,7 +50,7 @@ class SnsConnector extends SqsConnector implements ConnectorInterface
             'credentials' => new Credentials(
                 Arr::get($config, 'key'),
                 Arr::get($config, 'secret')
-            )
+            ),
         ]);
     }
 }

@@ -20,13 +20,13 @@
     ],
     "autoload": {
         "psr-4": {
-            "Jeylabs\\SnsSqsPubSub\\": "src/"
+            "Mvjacobs\\SnsSqsPubSub\\": "src/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Jeylabs\\SnsSqsPubSub\\SnsSqsPubSubServiceProvider"
+                "Mvjacobs\\SnsSqsPubSub\\SnsSqsPubSubServiceProvider"
             ]
         }
     }

@@ -1,20 +1,19 @@
 <?php
 
-
-namespace Jeylabs\SnsSqsPubSub\Publisher;
+namespace Mvjacobs\SnsSqsPubSub\Publisher;
 
 use Exception;
 use Illuminate\Auth\AuthManager;
+use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Contracts\Config\Repository;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
-use Jeylabs\SnsSqsPubSub\SNS\Client;
-use Illuminate\Contracts\Auth\Authenticatable;
+use Mvjacobs\SnsSqsPubSub\SNS\Client;
 
 /**
  * Class SNSPublisher
- * @package Jeylabs\SnsSqsPubSub\Publisher
+ * @package Mvjacobs\SnsSqsPubSub\Publisher
  */
 class SNSPublisher
 {
@@ -74,7 +73,10 @@ class SNSPublisher
      */
     public function withProperties(array $properties = [])
     {
-        if (!count($properties)) return $this;
+        if (!count($properties)) {
+            return $this;
+        }
+
         $this->properties = $properties;
         return $this;
     }
@@ -85,7 +87,10 @@ class SNSPublisher
      */
     public function withTopic(string $topic = null)
     {
-        if (!$topic) return $this;
+        if (!$topic) {
+            return $this;
+        }
+
         $this->topicArn = $topic;
         return $this;
     }
@@ -96,7 +101,10 @@ class SNSPublisher
      */
     public function withEvent(string $event)
     {
-        if (!$event) return $this;
+        if (!$event) {
+            return $this;
+        }
+
         $this->event = $event;
         return $this;
     }
@@ -119,11 +127,18 @@ class SNSPublisher
     /**
      * @return false|string
      */
-    private function generateMessage(){
+    private function generateMessage()
+    {
         $messageArray = ['data' => $this->properties];
-        if ($this->event) $messageArray['model_event'] = $this->event;
-        if ($this->performedOn) $messageArray['model'] = class_basename($this->performedOn);
-        if ($this->authUser){
+        if ($this->event) {
+            $messageArray['model_event'] = $this->event;
+        }
+
+        if ($this->performedOn) {
+            $messageArray['model'] = class_basename($this->performedOn);
+        }
+
+        if ($this->authUser) {
             $messageArray['user'] = ['id' => $this->authUser->id];
         }
         return json_encode($messageArray);
