@@ -2,7 +2,8 @@
 
 namespace Mvjacobs\SnsSqsPubSub;
 
-use Illuminate\Config\Repository;
+use Illuminate\Contracts\Config\Repository;
+use Illuminate\Contracts\Container\BindingResolutionException;
 use Illuminate\Queue\QueueManager;
 use Illuminate\Support\ServiceProvider;
 use Mvjacobs\SnsSqsPubSub\Queue\Connectors\SnsConnector;
@@ -23,16 +24,16 @@ class SnsSqsPubSubServiceProvider extends ServiceProvider
     /**
      * Bootstrap services.
      *
+     * @param QueueManager $manager
      * @return void
+     * @throws BindingResolutionException
      */
-    public function boot()
+    public function boot(QueueManager $manager)
     {
-        $this->app->afterResolving(QueueManager::class, function (QueueManager $manager) {
-            $config = $this->app->make(Repository::class);
-            $manager->addConnector('sns-sqs-sub-pub', function () use ($config) {
-                $map = new JobMap($config->get('sns-sqs-sub-pub.map'));
-                return new SnsConnector($map);
-            });
+        $config = $this->app->make(Repository::class);
+        $manager->addConnector('sns-sqs-sub-pub', function () use ($config) {
+            $map = new JobMap($config->get('sns-sqs-sub-pub.map'));
+            return new SnsConnector($map);
         });
     }
 

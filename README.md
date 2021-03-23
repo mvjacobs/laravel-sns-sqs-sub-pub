@@ -8,13 +8,13 @@ This is especially useful in a miroservice architecture where multiple services 
 
 ## Requirements
 
--   Laravel (tested with version 5.8)
--   or Lumen (tested with version 5.8)
+-   Laravel (tested with version 8.0)
+-   or Lumen (tested with version 8.0)
 
 ## Installation
 You can install the package via composer
 ```bash
-composer require jeylabs/laravel-sns-sqs-sub-pub 
+composer require mvjacobs/laravel-sns-sqs-sub-pub 
 ```
 You can optionally publish the config file with:
 ```bash
